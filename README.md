@@ -1,12 +1,8 @@
-# Java Object Oriented Programming V2
+# Java Object Oriented Programming
 
 ## Practice description
 - Implementing code according to the requirements in `README.md` , 
 so that the test code can run through.
-
-## Environment Requirement
-- Java 8
-- Intellij-IDEA
 
 ## How to run it
 clone the repo
