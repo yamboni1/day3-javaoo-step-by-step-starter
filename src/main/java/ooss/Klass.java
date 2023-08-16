@@ -6,7 +6,13 @@ public class Klass {
     public Klass(int number){
 
         this.number = number;
+
     }
+    public int getKlassNumber(){
+        return number;
+    }
+
+
 
     @Override
     public boolean equals(Object o) {
