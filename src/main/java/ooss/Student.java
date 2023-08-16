@@ -17,7 +17,7 @@ public class Student extends Person {
     @Override
     public String introduce(){
         return super.introduce().concat(" I am a student.")
-                .concat("I am in class "+ studentKlassNumber);
+                .concat(" I am in class "+ studentKlassNumber+ ".");
 
     }
 
