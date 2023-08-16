@@ -13,10 +13,7 @@ public class Teacher extends Person {
         super(id, name, age);
     }
 
-    @Override
-    public String introduce() {
-        return super.introduce().concat(" I am a teacher." );
-    }
+
     public void assignTo(Klass klass) {
         this.listOfKlass.add(klass);
     }
@@ -24,8 +21,28 @@ public class Teacher extends Person {
         return this.listOfKlass.contains(klassFinder);
 
     }
+    @Override
+    public String introduce() {
+        return super.introduce().concat(" I am a teacher." ).concat(" I teach Class "+ createKlassesLine(getListOfMultipleKlass()) + ".");
+    }
 
     public boolean isTeaching(Student student) {
         return this.listOfKlass.contains(student.getStudentKlass());
+    }
+
+    public List<Klass> getListOfKlass(){
+        return listOfKlass;
+    }
+    public List<Integer> getListOfMultipleKlass(){
+        return this.listOfKlass.stream()
+                .map(Klass::getKlassNumber)
+                .collect(Collectors.toList());
+    }
+    public String createKlassesLine(List<Integer> listOfKlasses){
+        StringBuilder klassNumberLine = new StringBuilder();
+        listOfKlasses.forEach(numberOfKlass -> klassNumberLine.append(numberOfKlass)
+                .append(", "));
+        return klassNumberLine.deleteCharAt(klassNumberLine.length()-2).toString().trim();
+
     }
 }
