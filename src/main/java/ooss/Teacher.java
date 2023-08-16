@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 
 public class Teacher extends Person {
     private int teacherKlassNumber;
+    private Klass klass;
     private List<Klass> listOfKlass  = new ArrayList<>();
     public Teacher(int id, String name, int age){
         super(id, name, age);
@@ -22,5 +23,9 @@ public class Teacher extends Person {
     public boolean belongsTo(Klass klassFinder) {
         return this.listOfKlass.contains(klassFinder);
 
+    }
+
+    public boolean isTeaching(Student student) {
+        return this.listOfKlass.contains(student.getStudentKlass());
     }
 }

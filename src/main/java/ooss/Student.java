@@ -20,6 +20,9 @@ public class Student extends Person {
                 .concat(" I am in class "+ studentKlassNumber+ ".");
 
     }
+    public Klass getStudentKlass(){
+        return this.klass;
+    }
 
 
 }
