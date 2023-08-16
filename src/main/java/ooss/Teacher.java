@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 
 public class Teacher extends Person {
     private int teacherKlassNumber;
+    private List<Klass> listOfKlass  = new ArrayList<>();
     public Teacher(int id, String name, int age){
         super(id, name, age);
     }
@@ -16,11 +17,10 @@ public class Teacher extends Person {
         return super.introduce().concat(" I am a teacher." );
     }
     public void assignTo(Klass klass) {
-        teacherKlassNumber = klass.getKlassNumber();
-
+        this.listOfKlass.add(klass);
     }
-    public boolean belongsTo(Klass klass) {
-        return klass.getKlassNumber() == teacherKlassNumber;
+    public boolean belongsTo(Klass klassFinder) {
+        return this.listOfKlass.contains(klassFinder);
 
     }
 }
