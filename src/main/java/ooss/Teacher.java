@@ -27,7 +27,7 @@ public class Teacher extends Person {
     }
 
     public boolean isTeaching(Student student) {
-        return this.listOfKlass.contains(student.getStudentKlass());
+        return this.listOfKlass.contains(student.getKlass());
     }
 
     public List<Klass> getListOfKlass(){

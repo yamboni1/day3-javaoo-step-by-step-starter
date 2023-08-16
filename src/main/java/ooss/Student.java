@@ -8,7 +8,7 @@ public class Student extends Person {
     }
 
     public void join(Klass klass){
-       studentKlassNumber = klass.getKlassNumber();
+       this.klass = klass;
     }
     public boolean isIn(Klass klass) {
         return klass.getKlassNumber() == studentKlassNumber;
@@ -20,8 +20,7 @@ public class Student extends Person {
                 .concat(" I am in class "+ studentKlassNumber+ ".");
 
     }
-    public Klass getStudentKlass(){
-        return this.klass;
+    public Klass getKlass(){ return this.klass;
     }
 
 
