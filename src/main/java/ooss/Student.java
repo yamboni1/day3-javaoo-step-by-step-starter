@@ -11,14 +11,23 @@ public class Student extends Person {
        this.klass = klass;
     }
     public boolean isIn(Klass klass) {
-        return klass.getKlassNumber() == studentKlassNumber;
+        return this.klass == klass;
 
     }
     @Override
     public String introduce(){
-        return super.introduce().concat(" I am a student.")
-                .concat(" I am in class "+ studentKlassNumber+ ".");
+        if(klass != null){
+            if(klass.isLeader(this)){
+                return super.introduce().concat(" I am a student. I am the leader of class ") + klass.getKlassNumber() + ".";
 
+            }else{
+                return super.introduce().concat(" I am a student.")
+                        .concat(" I am in class "+ klass.getKlassNumber()+ ".");
+
+
+            }
+        }
+        return super.introduce().concat(" I am a student.");
     }
     public Klass getKlass(){ return this.klass;
     }

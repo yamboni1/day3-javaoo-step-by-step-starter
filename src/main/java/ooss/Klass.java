@@ -1,17 +1,44 @@
 package ooss;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Klass {
     private final int number;
+    private Student leader;
+    private List<Person> listOfPerson  = new ArrayList<>();
 
     public Klass(int number){
 
         this.number = number;
 
     }
+
+    public void assignLeader(Student student) {
+        if (student.isIn(this)) {
+            leader = student;
+            for ( Person person: listOfPerson) {
+                if(person instanceof  Student){
+                    System.out.print("I am " + person.getName()+  ", student of Class " + number + ". I know " + student.getName() + " become Leader.");
+                } else if (person instanceof Teacher) {
+                    System.out.print("I am " + person.getName()+  ", student of Class " + number + ". I know " + student.getName() + " become Leader.");
+                }else{
+                    System.out.println("It is not one of us.");
+                }
+            }
+        }
+
+
+    }
+    public void attach(Person person) {
+        listOfPerson.add(person);
+    }
+    public boolean isLeader(Student student){
+        return leader != null && leader.equals(student);
+    }
     public int getKlassNumber(){
         return number;
     }
-
 
 
     @Override
