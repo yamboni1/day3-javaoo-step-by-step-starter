@@ -21,10 +21,5 @@ public class Student extends Person {
 
     }
 
-    public int isIn(){
-        int j = 0;
-        return j;
-    }
-
 
 }
