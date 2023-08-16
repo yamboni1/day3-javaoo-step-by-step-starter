@@ -2,7 +2,6 @@ package ooss;
 
 public class Student extends Person {
     private  Klass klass;
-    private int studentKlassNumber;
     public Student(int id, String name, int age){
         super(id, name, age);
     }
@@ -11,7 +10,7 @@ public class Student extends Person {
        this.klass = klass;
     }
     public boolean isIn(Klass klass) {
-        return this.klass == klass;
+        return this.klass == klass && this.klass !=null;
 
     }
     @Override
@@ -23,14 +22,11 @@ public class Student extends Person {
             }else{
                 return super.introduce().concat(" I am a student.")
                         .concat(" I am in class "+ klass.getKlassNumber()+ ".");
-
-
             }
         }
         return super.introduce().concat(" I am a student.");
     }
-    public Klass getKlass(){ return this.klass;
-    }
+    public Klass getKlass(){ return this.klass;}
 
 
 }
