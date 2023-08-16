@@ -20,7 +20,16 @@ public class Klass {
         }else{
             System.out.println("It is not one of us.");
         }
-
+//            leader = student;
+            for ( Person person: listOfPerson) {
+                if(person instanceof  Student){
+                    System.out.print("I am " + person.getName()+  ", student of Class " + number + ". I know " + student.getName() + " become Leader.");
+                } else if (person instanceof Teacher) {
+                    System.out.print("I am " + person.getName()+  ", teacher of Class " + number + ". I know " + student.getName() + " become Leader.");
+                }else{
+                    System.out.println("It is not one of us.");
+                }
+            }
 
 
     }
