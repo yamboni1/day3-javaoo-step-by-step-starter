@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Teacher extends Person {
-    private int teacherKlassNumber;
+
     private Klass klass;
     private List<Klass> listOfKlass  = new ArrayList<>();
     public Teacher(int id, String name, int age){
@@ -23,6 +23,9 @@ public class Teacher extends Person {
     }
     @Override
     public String introduce() {
+        if(getListOfKlass().isEmpty()){
+            return super.introduce().concat(" I am a teacher.");
+        }
         return super.introduce().concat(" I am a teacher." ).concat(" I teach Class "+ createKlassesLine(getListOfMultipleKlass()) + ".");
     }
 
