@@ -19,7 +19,6 @@ public class Teacher extends Person {
     }
     public boolean belongsTo(Klass klassFinder) {
         return this.listOfKlass.contains(klassFinder);
-
     }
     @Override
     public String introduce() {

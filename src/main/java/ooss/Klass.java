@@ -8,11 +8,6 @@ public class Klass {
     private Student leader;
     private List<Person> listOfPerson  = new ArrayList<>();
 
-    public Klass(int number){
-
-        this.number = number;
-
-    }
 
     public void assignLeader(Student student) {
         if (student.isIn(this)) {
@@ -30,7 +25,6 @@ public class Klass {
                 }
             }
 
-
     }
     public void attach(Person person) {
         listOfPerson.add(person);
@@ -41,7 +35,11 @@ public class Klass {
     public int getKlassNumber(){
         return number;
     }
+    public Klass(int number){
 
+        this.number = number;
+
+    }
 
     @Override
     public boolean equals(Object o) {

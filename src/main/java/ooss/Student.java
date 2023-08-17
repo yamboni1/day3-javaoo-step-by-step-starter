@@ -3,6 +3,7 @@ package ooss;
 public class Student extends Person {
     private  Klass klass;
     public Student(int id, String name, int age){
+
         super(id, name, age);
     }
 
