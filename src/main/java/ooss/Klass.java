@@ -8,7 +8,9 @@ public class Klass {
     private Student leader;
     private List<Person> listOfPerson  = new ArrayList<>();
 
-
+    //TODO: fix indention of the for loop
+    //TODO: similar Strings aside from one word. It may be better to use a local variable.
+    //TODO: remove the case of else inside the for loop. it's not included in the requirement.
     public void assignLeader(Student student) {
         if (student.isIn(this)) {
             this.leader = student;

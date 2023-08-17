@@ -5,8 +5,10 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
+//TODO: remove unused import statement java.util.Collections
 public class Teacher extends Person {
 
+    //TODO: remove attribute klass since it is never used
     private Klass klass;
     private List<Klass> listOfKlass  = new ArrayList<>();
     public Teacher(int id, String name, int age){
@@ -20,6 +22,8 @@ public class Teacher extends Person {
     public boolean belongsTo(Klass klassFinder) {
         return this.listOfKlass.contains(klassFinder);
     }
+
+    //TODO: " I am a teacher." String is used twice. It may be better to use a local variable
     @Override
     public String introduce() {
         if(getListOfKlass().isEmpty()){

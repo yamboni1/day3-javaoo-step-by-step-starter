@@ -10,10 +10,13 @@ public class Student extends Person {
     public void join(Klass klass){
        this.klass = klass;
     }
+
+    //TODO: the 'this.klass != null' seems redundant so it may be okay to remove it
     public boolean isIn(Klass klass) {
         return this.klass == klass && this.klass !=null;
 
     }
+    //TODO: " I am a student." String is used multiple times. It may be better to use a local variable.
     @Override
     public String introduce(){
         if(klass != null){
