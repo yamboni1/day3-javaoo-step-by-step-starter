@@ -6,19 +6,19 @@ import java.util.List;
 public class Klass {
     private final int number;
     private Student leader;
-    private List<Person> listOfPerson = new ArrayList<>();
+    private final List<Person> members = new ArrayList<>();
 
     //TODO: fix indention of the for loop - done
     //TODO: similar Strings aside from one word. It may be better to use a local variable. - done
     //TODO: remove the case of else inside the for loop. it's not included in the requirement. - done
     public void assignLeader(Student student) {
         String doNotBelong = "It is not one of us.";
-        if (student.isIn(this)) {
-            this.leader = student;
-        } else {
+        if (!student.isIn(this)) {
             System.out.println(doNotBelong);
+            return;
         }
-        for (Person person : listOfPerson) {
+        this.leader = student;
+        for (Person person : members) {
             if (person instanceof Student) {
                 System.out.print("I am " + person.getName() + ", student of Class " + number + ". I know " + student.getName() + " become Leader.");
             } else if (person instanceof Teacher) {
@@ -29,7 +29,7 @@ public class Klass {
     }
 
     public void attach(Person person) {
-        listOfPerson.add(person);
+        members.add(person);
     }
 
     public boolean isLeader(Student student) {

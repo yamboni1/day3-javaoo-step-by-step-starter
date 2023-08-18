@@ -9,8 +9,9 @@ public class Teacher extends Person {
 
     //TODO: remove attribute klass since it is never used - removed
 
-    private List<Klass> listOfKlass  = new ArrayList<>();
-    public Teacher(int id, String name, int age){
+    private List<Klass> listOfKlass = new ArrayList<>();
+
+    public Teacher(int id, String name, int age) {
         super(id, name, age);
     }
 
@@ -18,6 +19,7 @@ public class Teacher extends Person {
     public void assignTo(Klass klass) {
         this.listOfKlass.add(klass);
     }
+
     public boolean belongsTo(Klass klassFinder) {
         return this.listOfKlass.contains(klassFinder);
     }
@@ -26,29 +28,31 @@ public class Teacher extends Person {
     @Override
     public String introduce() {
         String isTeacher = " I am a teacher.";
-        if(getListOfKlass().isEmpty()){
+        if (getListOfKlass().isEmpty()) {
             return super.introduce().concat(isTeacher);
         }
-        return super.introduce().concat(isTeacher).concat(" I teach Class "+ createKlassesLine(getListOfMultipleKlass()) + ".");
+        return super.introduce().concat(isTeacher).concat(" I teach Class " + createKlassesLine(getListOfMultipleKlass()) + ".");
     }
 
     public boolean isTeaching(Student student) {
         return this.listOfKlass.contains(student.getKlass());
     }
 
-    public List<Klass> getListOfKlass(){
+    public List<Klass> getListOfKlass() {
         return listOfKlass;
     }
-    public List<Integer> getListOfMultipleKlass(){
+
+    public List<Integer> getListOfMultipleKlass() {
         return this.listOfKlass.stream()
                 .map(Klass::getKlassNumber)
                 .collect(Collectors.toList());
     }
-    public String createKlassesLine(List<Integer> listOfKlasses){
+
+    public String createKlassesLine(List<Integer> listOfKlasses) {
         StringBuilder klassNumberLine = new StringBuilder();
         listOfKlasses.forEach(numberOfKlass -> klassNumberLine.append(numberOfKlass)
                 .append(", "));
-        return klassNumberLine.deleteCharAt(klassNumberLine.length()-2).toString().trim();
+        return klassNumberLine.deleteCharAt(klassNumberLine.length() - 2).toString().trim();
 
     }
 }
