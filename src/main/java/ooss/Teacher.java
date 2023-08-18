@@ -1,15 +1,14 @@
 package ooss;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
-//TODO: remove unused import statement java.util.Collections
+//TODO: remove unused import statement java.util.Collections - removed
 public class Teacher extends Person {
 
-    //TODO: remove attribute klass since it is never used
-    private Klass klass;
+    //TODO: remove attribute klass since it is never used - removed
+
     private List<Klass> listOfKlass  = new ArrayList<>();
     public Teacher(int id, String name, int age){
         super(id, name, age);
@@ -23,13 +22,14 @@ public class Teacher extends Person {
         return this.listOfKlass.contains(klassFinder);
     }
 
-    //TODO: " I am a teacher." String is used twice. It may be better to use a local variable
+    //TODO: " I am a teacher." String is used twice. It may be better to use a local variable - fixed
     @Override
     public String introduce() {
+        String isTeacher = " I am a teacher.";
         if(getListOfKlass().isEmpty()){
-            return super.introduce().concat(" I am a teacher.");
+            return super.introduce().concat(isTeacher);
         }
-        return super.introduce().concat(" I am a teacher." ).concat(" I teach Class "+ createKlassesLine(getListOfMultipleKlass()) + ".");
+        return super.introduce().concat(isTeacher).concat(" I teach Class "+ createKlassesLine(getListOfMultipleKlass()) + ".");
     }
 
     public boolean isTeaching(Student student) {
